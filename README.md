@@ -47,7 +47,7 @@ I will also add testing for each component, just unsure as to what testing for c
 -   Spinner
 -   Switch
 -   Textarea
--   TextField
+-   TextField ✔
 -   Tooltip
 
 _So I don't have to remember the unicodes_ ✔❔
