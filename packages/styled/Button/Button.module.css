@@ -1,0 +1,110 @@
+.base {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: fit-content;
+	width: fit-content;
+	appearance: none;
+	text-decoration: none;
+	transition: background-color ease-in-out 200ms, color ease-in-out 200ms;
+	cursor: pointer;
+	outline: none;
+}
+
+.button {
+	position: relative;
+	font-family: var(--bui-fontfamily, "Open Sans", sans-serif);
+	line-height: 1;
+	font-size: 16px;
+	border-radius: 4px;
+	padding: 10px 16px;
+}
+
+.primary {
+	border: none;
+}
+
+.secondary {
+	background-color: white;
+	color: #1976d2;
+	fill: #1976d2;
+	border: 1px solid #1976d2;
+}
+
+.primary,
+.secondary:is(:hover, :focus-visible) {
+	background-color: #1976d2;
+	color: white;
+	fill: white;
+}
+
+.primary:is(:hover, :focus-visible) {
+	background-color: #1565c0;
+}
+
+.base:disabled {
+	opacity: 0.5;
+	pointer-events: none;
+	cursor: not-allowed;
+}
+
+.base.loading {
+	cursor: progress;
+}
+
+.button.loading {
+	color: transparent;
+}
+
+.base.loading > div {
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	position: absolute;
+}
+
+/* loading spinner */
+.base.loading > div > div {
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 50%;
+	animation: spinner infinite 500ms;
+	border: 1px solid black;
+	border-right: 0;
+}
+
+.button.primary.loading > div > div {
+	border-color: white;
+}
+
+.button.secondary.loading > div > div {
+	border-color: #1976d2;
+}
+
+@keyframes spinner {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.icon.loading > :not(div) {
+	opacity: 0;
+}
+
+.icon {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	color: black;
+	background: none;
+	border: none;
+}
+
+.icon:is(:hover, :focus) {
+	background: rgba(0 0 0 / 10%);
+}
