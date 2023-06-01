@@ -1,0 +1,59 @@
+.button {
+	background-color: #991b1b;
+	color: rgb(0 0 0 / 87%);
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	height: fit-content;
+	width: fit-content;
+	appearance: none;
+	text-decoration: none;
+	font-family: "Open Sans", Arial, sans-serif;
+	line-height: 1;
+	font-size: 16px;
+	border: 1px solid rgba(0 0 0 / 87%);
+	border-radius: 4px;
+	transition: background-color ease-in-out 200ms;
+}
+
+.button:is(:hover, :focus) {
+	background-color: #991b1bcc;
+}
+
+.button:not(:disabled) {
+	cursor: pointer;
+}
+
+.button:disabled {
+	background-color: rgb(255 255 255 / 50%);
+	border-color: rgb(255 255 255 / 50%);
+	color: rgb(255 255 255 / 50%);
+	cursor: not-allowed;
+}
+
+.button.loading {
+	cursor: progress;
+	color: transparent;
+}
+
+.button.loading > :not(.spinner) {
+	opacity: 0;
+}
+
+.button .spinner {
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	position: absolute;
+}
+
+.button:not(.icon) {
+	padding: 10px 16px;
+}
+
+.icon {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+}
