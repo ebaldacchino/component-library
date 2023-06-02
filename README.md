@@ -44,7 +44,7 @@ I will also add testing for each component, just unsure as to what testing for c
 -   Portal ✔
 -   Select
 -   Snackbar
--   Spinner
+-   Spinner ✔
 -   Switch
 -   Textarea
 -   TextField ✔
