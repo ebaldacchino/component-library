@@ -1,0 +1,21 @@
+.container {
+	font-family: var(--bui-fontfamily, "Open Sans", sans-serif);
+	font-size: 11px;
+	font-weight: 500;
+	width: fit-content;
+	max-width: 300px;
+	transition: opacity ease-in-out 200ms;
+	opacity: 0;
+	z-index: 1500;
+}
+
+.container.visible {
+	opacity: 1;
+}
+
+.body {
+	background-color: rgb(97 97 97 / 92%);
+	color: white;
+	padding: 4px 8px;
+	border-radius: 4px;
+}
