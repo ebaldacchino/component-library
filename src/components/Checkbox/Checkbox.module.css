@@ -1,0 +1,37 @@
+.checkbox {
+	display: flex;
+	gap: 8px;
+	margin: 0;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.5;
+	cursor: pointer;
+	user-select: none;
+	width: fit-content;
+}
+
+.checkbox > input {
+	cursor: pointer;
+	margin: auto;
+}
+
+.checkbox.top {
+	flex-direction: column;
+}
+
+.checkbox.right {
+	flex-direction: row;
+}
+
+.checkbox.bottom {
+	flex-direction: column-reverse;
+}
+
+.checkbox.left {
+	flex-direction: row-reverse;
+}
+
+.asterisk {
+	color: red;
+}
