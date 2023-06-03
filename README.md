@@ -24,7 +24,7 @@ I will also add testing for each component, just unsure as to what testing for c
 -   Button ✔
 -   Card
 -   ClickAwayListener
--   Checkbox
+-   Checkbox ✔
 -   CheckboxField
 -   Chip
 -   DataGrid
