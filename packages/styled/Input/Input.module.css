@@ -1,0 +1,45 @@
+.input {
+	display: flex;
+	position: relative;
+	border-radius: 12px;
+	background: rgb(26 32 39);
+	border: 1px solid rgb(62 80 96);
+	box-shadow: rgb(26 32 39) 0 2px 2px;
+	box-sizing: border-box;
+	width: 320px;
+	min-height: 50px;
+}
+
+input,
+.input > div {
+	font-family: var(--bui-fontfamily, "Open Sans", sans-serif);
+	font-size: 16px;
+	color: rgb(205 210 215);
+	line-height: 24px;
+}
+
+input.input,
+.input > input {
+	padding: 12px;
+	width: 320px;
+	box-sizing: border-box;
+}
+
+.input > input {
+	appearance: none;
+	border: none;
+	background: none;
+	outline: none;
+}
+
+.input:focus,
+.input:focus-within {
+	outline: white auto 1px;
+}
+
+.input > div {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin: 8px;
+}
