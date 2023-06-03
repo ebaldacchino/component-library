@@ -34,7 +34,7 @@ I will also add testing for each component, just unsure as to what testing for c
 -   DropFile
 -   FocusTrap
 -   FormControl
--   Input
+-   Input ✔
 -   Modal
 -   Popover
 -   Popper

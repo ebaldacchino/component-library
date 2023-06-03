@@ -1,0 +1,46 @@
+.container {
+	display: flex;
+	position: relative;
+	border-radius: 12px;
+	background: rgb(26 32 39);
+	border: 1px solid rgb(62 80 96);
+	box-shadow: rgb(26 32 39) 0 2px 2px;
+	box-sizing: border-box;
+	width: 320px;
+	min-height: 50px;
+}
+
+.input {
+	padding: 12px;
+	width: 320px;
+	box-sizing: border-box;
+}
+
+.input,
+.prefix,
+.suffix {
+	font-family: "Open Sans", sans-serif;
+	font-size: 16px;
+	color: rgb(205 210 215);
+	line-height: 24px;
+}
+
+.container > .input {
+	appearance: none;
+	border: none;
+	background: none;
+	outline: none;
+}
+
+.container:focus,
+.container:focus-within {
+	outline: white auto 1px;
+}
+
+.prefix,
+.suffix {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin: 8px;
+}
