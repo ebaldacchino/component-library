@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@fontsource/open-sans':
+    specifier: ^5.0.2
+    version: 5.0.2
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -2752,6 +2755,10 @@ packages:
   /@fal-works/esbuild-plugin-global-externals@2.1.2:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
     dev: true
+
+  /@fontsource/open-sans@5.0.2:
+    resolution: {integrity: sha512-iR4bQD0aEztyCQ0WWzlcte0al6YeNOg0qvvy+NMIMx72Hes+OV+lerL2eJHxaBB7dviNYwP3igz180K4Dts1Cg==}
+    dev: false
 
   /@humanwhocodes/config-array@0.11.10:
     resolution: {integrity: sha512-KVVjQmNUepDVGXNuoRRdmmEjruj0KfiGSbS8LVc12LMsWDQzRXJ0qdhN8L8uUigKpfEHRhlaQFY0ib1tnUbNeQ==}
