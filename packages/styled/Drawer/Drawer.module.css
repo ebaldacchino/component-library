@@ -1,0 +1,61 @@
+.drawer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--bui-fontfamily, "Open Sans", sans-serif);
+	font-size: 16px;
+	background-color: rgb(18 18 18);
+	box-shadow: rgba(0 0 0 / 20%) 0 11px 15px -7px,
+		rgba(0 0 0 / 14%) 0 24px 38px 3px, rgba(0 0 0 / 12%) 0 9px 46px 8px;
+	border: none;
+	outline: none;
+	border-radius: 0;
+	opacity: 0;
+	transition: opacity ease-in-out 200ms, transform ease-in-out 200ms;
+}
+
+.drawer::backdrop {
+	background-color: rgba(0 0 0 / 40%);
+}
+
+.drawer.open {
+	opacity: 1;
+}
+
+.left,
+.right {
+	height: 100vh;
+}
+
+.top,
+.bottom {
+	width: 100vw;
+}
+
+.left {
+	left: 0;
+	right: auto;
+	transform: translateX(-100%);
+}
+
+.right {
+	left: auto;
+	right: 0;
+	transform: translateX(100%);
+}
+
+.top {
+	top: 0;
+	bottom: auto;
+	transform: translateY(-100%);
+}
+
+.bottom {
+	top: auto;
+	bottom: 0;
+	transform: translateY(100%);
+}
+
+.open {
+	transform: translate(0, 0);
+}
