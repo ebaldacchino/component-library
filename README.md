@@ -32,7 +32,7 @@ I will also add testing for each component, just unsure as to what testing for c
 -   DateRangePicker
 -   DateTimePicker
 -   Dialog
--   Drawer
+-   Drawer ✔
 -   FilePicker
 -   FocusTrap
 -   FormControl ✔
