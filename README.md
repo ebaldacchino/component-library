@@ -38,7 +38,7 @@ I will also add testing for each component, just unsure as to what testing for c
 -   FormControl ✔
 -   ImagePreview
 -   Input ✔
--   Modal
+-   Modal ✔
 -   Popover
 -   Popper ✔
 -   Portal ✔
