@@ -3,6 +3,7 @@ export * from "./Checkbox";
 export * from "./CheckboxField";
 export * from "./FormControl";
 export * from "./Input";
+export * from "base/Modal";
 export * from "base/Popper";
 export * from "base/Portal";
 export * from "./Spinner";
