@@ -5,6 +5,7 @@ export * from "./Drawer";
 export * from "./FormControl";
 export * from "./Input";
 export * from "base/Modal";
+export * from "./Popover";
 export * from "base/Popper";
 export * from "base/Portal";
 export * from "./Spinner";
