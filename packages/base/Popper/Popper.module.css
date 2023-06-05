@@ -1,0 +1,27 @@
+/* TODO: Investigate if this is being used - am confident it isn't */
+.popper {
+	position: absolute;
+	inset: 0 auto auto 0;
+	margin: 0;
+	z-index: 1500;
+}
+
+.top {
+	transform: translate(-50%);
+	padding-bottom: 14px;
+}
+
+.right {
+	transform: translateY(-50%);
+	padding-left: 14px;
+}
+
+.bottom {
+	transform: translateX(-50%);
+	padding-top: 14px;
+}
+
+.left {
+	transform: translate(-100%, -50%);
+	padding-right: 14px;
+}
