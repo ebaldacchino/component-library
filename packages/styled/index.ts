@@ -1,6 +1,7 @@
 export * from "./Button";
 export * from "./FormControl";
 export * from "./Input";
+export * from "base/Popper";
 export * from "base/Portal";
 export * from "./Spinner";
 export * from "./TextField";
