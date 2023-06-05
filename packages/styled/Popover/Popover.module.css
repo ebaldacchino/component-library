@@ -1,0 +1,27 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--bui-fontfamily, "Open Sans", sans-serif);
+	font-size: 16px;
+	background-color: rgb(18 18 18);
+	background-image: linear-gradient(
+		rgba(255 255 255 / 12%),
+		rgba(255 255 255 / 12%)
+	);
+	border: none;
+	border-radius: 10px;
+	box-shadow: rgba(0 0 0 / 20%) 0 11px 15px -7px,
+		rgba(0 0 0 / 14%) 0 24px 38px 3px, rgba(0 0 0 / 12%) 0 9px 46px 8px;
+	max-width: 300px;
+	transition: opacity ease-in-out 200ms;
+	opacity: 0;
+}
+
+.body {
+	padding: 16px;
+}
+
+.container.visible {
+	opacity: 1;
+}
