@@ -1,0 +1,22 @@
+.avatar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-family: var(--bui-fontfamily, "Open Sans", sans-serif);
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 1;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	background: blue;
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.avatar > img {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+}

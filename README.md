@@ -19,7 +19,7 @@ I will also add testing for each component, just unsure as to what testing for c
 
 -   Alert
 -   Autocomplete
--   Avatar
+-   Avatar ✔
 -   Badge
 -   Button ✔
 -   Card
