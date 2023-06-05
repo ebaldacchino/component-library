@@ -30,7 +30,7 @@ I will also add testing for each component, just unsure as to what testing for c
 -   DataGrid
 -   DatePicker
 -   DateTimePicker
--   Dialog
+-   Dialog ✔
 -   Drawer ✔
 -   FilePicker
 -   FocusTrap

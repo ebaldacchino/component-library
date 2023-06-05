@@ -2,6 +2,7 @@ export * from "./Avatar";
 export * from "./Button";
 export * from "./Checkbox";
 export * from "./CheckboxField";
+export * from "./Dialog";
 export * from "./Drawer";
 export * from "./FormControl";
 export * from "./Input";
