@@ -1,0 +1,58 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	font-family: var(--bui-fontfamily, "Open Sans", sans-serif);
+	width: fit-content;
+	box-sizing: border-box;
+}
+
+.container label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	color: rgb(205 210 215 / 70%);
+	pointer-events: none;
+	transform: translate(13px, 14px);
+	transition: transform ease-in-out 200ms, border ease-in-out 200ms,
+		outline ease-in-out 200ms;
+}
+
+.container.prefix label {
+	transform: translate(38px, 14px);
+}
+
+.container:focus-within * {
+	color: white;
+}
+
+.container:focus-within label,
+.container:focus label,
+.container.value label {
+	/* If I decide that the label text should cover the border, gotta use the field's background colour, and -4px should be a slightly more negative value */
+
+	/* background: rgb(26, 32, 39); */
+	transform: translate(0, -4px) scale(0.65);
+}
+
+.container.error,
+.container.error * {
+	color: rgb(244 67 54);
+}
+
+.container.error > input,
+.container.error > div:has(input, select) {
+	border-color: red;
+}
+
+.container.error:focus-within > input,
+.container.error:focus-within > div:has(input, select) {
+	outline-style: solid;
+	outline-color: red;
+}
+
+.container > small {
+	margin-top: 1px;
+	text-align: right;
+}

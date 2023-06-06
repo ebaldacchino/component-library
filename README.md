@@ -35,7 +35,7 @@ I will also add testing for each component, just unsure as to what testing for c
 -   Drawer
 -   FilePicker
 -   FocusTrap
--   FormControl
+-   FormControl ✔
 -   ImagePreview
 -   Input ✔
 -   Modal
