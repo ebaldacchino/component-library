@@ -11,6 +11,7 @@ export * from "./Popover";
 export * from "base/Popper";
 export * from "base/Portal";
 export * from "./Spinner";
+export * from "./Textarea";
 export * from "./TextField";
 export * from "./Tooltip";
 import "@fontsource/open-sans/400.css";
