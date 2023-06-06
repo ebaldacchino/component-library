@@ -1,0 +1,17 @@
+.textarea {
+	display: flex;
+	position: relative;
+	border-radius: 12px;
+	background: rgb(26 32 39);
+	border: 1px solid rgb(62 80 96);
+	box-shadow: rgb(26 32 39) 0 2px 2px;
+	width: 320px;
+	padding: 12px;
+	overflow: hidden;
+	box-sizing: border-box;
+	resize: none;
+	font-family: var(--bui-fontfamily, "Open Sans", sans-serif);
+	font-size: 16px;
+	color: rgb(205 210 215);
+	line-height: 24px;
+}

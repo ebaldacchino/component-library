@@ -46,7 +46,7 @@ I will also add testing for each component, just unsure as to what testing for c
 -   Snackbar
 -   Spinner ✔
 -   Switch
--   Textarea
+-   Textarea ✔
 -   TextField ✔
 -   Tooltip ✔
 
