@@ -6,3 +6,4 @@ export * from "./Modal";
 export * from "./Popper";
 export * from "./Portal";
 export * from "./Spinner";
+export * from "./Textarea";
