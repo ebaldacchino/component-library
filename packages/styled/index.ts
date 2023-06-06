@@ -1,4 +1,5 @@
 export * from "./Button";
+export * from "./FormControl";
 export * from "./Input";
 import "@fontsource/open-sans/400.css";
 import "@fontsource/open-sans/500.css";
