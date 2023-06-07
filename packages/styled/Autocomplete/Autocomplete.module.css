@@ -1,0 +1,17 @@
+.container > div > div:has(svg) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	rotate: -90deg;
+	scale: 0.75;
+	fill: rgb(205 210 215);
+	position: absolute;
+	inset: 0 10px 0 auto;
+	margin: 0;
+}
+
+/* Is to cover the default input arrow when there is a `list` attribute */
+.container svg {
+	background: rgb(26 32 39);
+}

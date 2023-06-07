@@ -18,7 +18,7 @@ I will also add testing for each component, just unsure as to what testing for c
 ## Roadmap (not in chronological order)
 
 -   Alert ✔
--   Autocomplete
+-   Autocomplete ✔
 -   Avatar ✔
 -   Badge
 -   Button ✔
