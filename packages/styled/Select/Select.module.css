@@ -1,0 +1,51 @@
+.container > div {
+	display: flex;
+	position: relative;
+	border-radius: 12px;
+	background: rgb(26 32 39);
+	border: 1px solid rgb(62 80 96);
+	box-shadow: rgb(26 32 39) 0 2px 2px;
+	box-sizing: border-box;
+	width: 320px;
+	min-height: 50px;
+}
+
+.container select {
+	padding: 12px 30px 12px 12px;
+	width: 320px;
+	appearance: none;
+	border: none;
+	background: none;
+	outline: none;
+}
+
+.container select,
+.container > div > div {
+	font-family: var(--bui-fontfamily, "Open Sans", sans-serif);
+	font-size: 16px;
+	color: rgb(205 210 215);
+	line-height: 24px;
+}
+
+.container > div > div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	transform: rotate(-90deg) scale(0.75);
+	fill: rgb(205 210 215);
+	position: absolute;
+	inset: 0 10px 0 auto;
+	transition: transform ease-in-out 200ms;
+}
+
+.container > div:focus,
+.container > div:focus-within {
+	outline: white auto 1px;
+}
+
+/* This doesn't work. Will have to make the dropdown. */
+
+.container:has(select:focus) > div > div {
+	transform: rotate(90deg) scale(0.75);
+}

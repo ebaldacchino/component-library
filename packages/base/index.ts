@@ -5,5 +5,6 @@ export * from "./Input";
 export * from "./Modal";
 export * from "./Popper";
 export * from "./Portal";
+export * from "./Select";
 export * from "./Spinner";
 export * from "./Textarea";
