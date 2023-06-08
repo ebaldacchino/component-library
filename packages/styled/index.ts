@@ -10,6 +10,7 @@ export * from "base/Modal";
 export * from "./Popover";
 export * from "base/Popper";
 export * from "base/Portal";
+export * from "./Select";
 export * from "./Spinner";
 export * from "./Textarea";
 export * from "./TextField";
