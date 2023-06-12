@@ -27,7 +27,16 @@ I will also add testing for each component, just unsure as to what testing for c
 -   Checkbox ✔
 -   CheckboxField ✔
 -   Chip ✔
--   DataGrid
+-   DataGrid ✔
+    -   Column resizing
+    -   Column pinning
+    -   Column reordering
+    -   Column visibility (toggling)
+    -   Column editing
+    -   Loading spinner
+    -   No rows overlay
+    -   Row sorting
+	-   Theming (CSS variables)
 -   DatePicker
 -   DateRangePicker
 -   DateTimePicker

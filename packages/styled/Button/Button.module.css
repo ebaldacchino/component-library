@@ -9,6 +9,7 @@
 	transition: background-color ease-in-out 200ms, color ease-in-out 200ms;
 	cursor: pointer;
 	outline: none;
+	flex-shrink: 0;
 }
 
 .button {

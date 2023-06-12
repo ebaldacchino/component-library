@@ -1,0 +1,267 @@
+:root {
+	--bui-datagrid-row-height: 48px;
+	--bui-datagrid-borderwidth: 1px;
+	--bui-datagrid-bordercolor: darkgrey;
+	--bui-datagrid-header-backgroundcolor: lightgrey;
+	--bui-datagrid-header-foregroundcolor: black;
+	--bui-datagrid-row-backgroundcolor: white;
+	--bui-datagrid-row-foregroundcolor: black;
+	--bui-datagrid-font-family: var(--bui-fontfamily, "Open Sans", sans-serif);
+}
+
+.grid {
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	flex: 1;
+	border: var(--bui-datagrid-borderwidth) solid
+		var(--bui-datagrid-bordercolor);
+	border-radius: 4px;
+	overflow: hidden;
+	display: grid;
+	grid-template-rows: auto 2fr auto;
+	grid-template-columns: 1fr;
+}
+
+.header,
+.footer {
+	grid-column: 1;
+}
+
+.body,
+.sidebar {
+	grid-row: 2;
+}
+
+.sidebar {
+	grid-column: 2;
+	grid-row: 1 / span 2;
+	display: flex;
+	width: fit-content;
+}
+
+.sidebar button {
+	writing-mode: vertical-lr;
+	background: none;
+	gap: 8px;
+	width: 22px;
+	padding: 50px inherit;
+	border: none;
+	height: 50%;
+	min-height: fit-content;
+}
+
+.sidebar button:hover,
+.sidebar button:focus-visible {
+	background: rgba(0 0 0 / 20%);
+}
+
+.grid,
+.cell.reordering {
+	font-family: var(--bui-datagrid-font-family);
+}
+
+.grid *,
+.cell.reordering {
+	box-sizing: border-box;
+}
+
+.body {
+	font-weight: normal;
+	height: 100%;
+	grid-column: 1;
+}
+
+.header {
+	display: flex;
+	height: fit-content;
+	overflow: hidden;
+}
+
+.header,
+.cell.reordering {
+	font-weight: bold;
+}
+
+.header.gutter {
+	scrollbar-color: transparent transparent;
+}
+
+.header,
+.body {
+	width: 100%;
+	position: relative;
+}
+
+.header.gutter,
+.body {
+	overflow-y: scroll;
+	scrollbar-gutter: stable;
+}
+
+.header .filler {
+	height: 100%;
+	overflow-y: auto;
+	scrollbar-gutter: stable;
+}
+
+.row {
+	display: flex;
+	height: var(--bui-datagrid-row-height);
+	width: 100%;
+	min-width: fit-content;
+}
+
+.cell {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: none;
+
+	/* To not cover the row's bottom border */
+	height: calc(
+		var(--bui-datagrid-row-height) - var(--bui-datagrid-borderwidth)
+	);
+
+	&.leftborder {
+		margin-left: auto;
+		border-left: var(--bui-datagrid-borderwidth) solid
+			var(--bui-datagrid-bordercolor);
+	}
+
+	&.rightborder {
+		border-right: var(--bui-datagrid-borderwidth) solid
+			var(--bui-datagrid-bordercolor);
+	}
+
+	/* TODO: may implement after column sizing */
+
+	/* flex-grow: 1; */
+}
+
+.header .cell {
+	gap: 8px;
+}
+
+/* Needs to be specific enough to override the `<IconButton/>` transition */
+button.sortbutton {
+	transform: none;
+	transition: transform 200ms ease-in-out, background-color ease-in-out 200ms,
+		color ease-in-out 200ms;
+}
+
+.sortbutton.unsorted {
+	color: rgb(0 0 0 / 20%);
+}
+
+.sortbutton.descending {
+	transform: rotate(180deg);
+}
+
+.grid,
+:is(.header, .footer) .row,
+.header .cell,
+.header .filler,
+.cell.reordering {
+	background-color: var(--bui-datagrid-header-backgroundcolor);
+}
+
+.cell.reordering {
+	position: fixed;
+	z-index: 9999;
+	box-shadow: 0 2px 2px 0 rgba(0 0 0 / 14%), 0 3px 1px -2px rgba(0 0 0 / 12%),
+		0 1px 5px 0 rgba(0 0 0 / 20%);
+}
+
+.header .cell.pointer {
+	cursor: pointer;
+
+	/* Required to support resizing on touch events */
+	touch-action: none;
+}
+
+body:has(.cell.reordering) > * {
+	cursor: move;
+}
+
+.body,
+.body :is(.row, .cell) {
+	background-color: var(--bui-datagrid-row-backgroundcolor);
+}
+
+:is(.header, .body) .row {
+	border-bottom: var(--bui-datagrid-borderwidth) solid
+		var(--bui-datagrid-bordercolor);
+}
+
+.body .row:last-of-type {
+	border: none;
+}
+
+.text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.pinned {
+	position: sticky;
+	z-index: 2;
+}
+
+.body .row .cell.pinned {
+	background-color: color-mix(
+		in srgb,
+		var(--bui-datagrid-header-backgroundcolor),
+		white 50%
+	);
+}
+
+.footer {
+	justify-content: flex-end;
+}
+
+.footer .cell {
+	gap: 5px;
+}
+
+body:has(.cell.reordering) .row .cell {
+	transition: left 200ms ease-in-out;
+}
+
+.resizer {
+	display: flex;
+	position: absolute;
+	height: 100%;
+	width: 14px;
+	cursor: col-resize;
+	z-index: 1;
+}
+
+.resizer.left {
+	left: -7px;
+}
+
+.resizer.right {
+	right: -7px;
+}
+
+.resizer div {
+	height: 50%;
+	width: 3px;
+	margin: auto;
+	background-color: var(--bui-datagrid-bordercolor);
+	border-radius: 9999px;
+	transition: background-color 200ms ease-in-out;
+	pointer-events: none;
+}
+
+.resizer:hover div {
+	background-color: color-mix(
+		in srgb,
+		var(--bui-datagrid-bordercolor),
+		black 50%
+	);
+}

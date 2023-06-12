@@ -5,6 +5,7 @@ export * from "./Card";
 export * from "./Checkbox";
 export * from "./CheckboxField";
 export * from "./Chip";
+export * from "./DataGrid";
 export * from "./Dialog";
 export * from "./Drawer";
 export * from "./FilePicker";
