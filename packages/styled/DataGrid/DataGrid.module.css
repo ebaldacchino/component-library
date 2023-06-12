@@ -1,0 +1,130 @@
+.grid {
+	--bui-datagrid-row-height: 48px;
+	--bui-datagrid-borderwidth: 1px;
+	--bui-datagrid-bordercolor: darkgrey;
+	--bui-datagrid-header-backgroundcolor: darkgrey;
+	--bui-datagrid-header-foregroundcolor: black;
+	--bui-datagrid-row-backgroundcolor: white;
+	--bui-datagrid-row-foregroundcolor: black;
+
+	font-family: var(--bui-fontfamily, "Open Sans", sans-serif);
+	background-color: var(--bui-datagrid-header-backgroundcolor);
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	flex: 1;
+	border: var(--bui-datagrid-borderwidth) solid
+		var(--bui-datagrid-bordercolor);
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.grid * {
+	box-sizing: border-box;
+}
+
+.body {
+	font-weight: normal;
+	height: 100%;
+	background-color: var(--bui-datagrid-row-backgroundcolor);
+	overflow: auto scroll;
+	scrollbar-gutter: stable;
+}
+
+.header {
+	display: flex;
+	font-weight: bold;
+	min-height: fit-content;
+	overflow-y: auto;
+	scrollbar-color: transparent;
+
+	/* overflow: scroll;
+	scrollbar-color: transparent;
+	 */
+
+	&::-webkit-scrollbar {
+		height: 0;
+		background-color: transparent;
+	}
+}
+
+.header .row .filler {
+	background: transparent;
+	height: 100%;
+	overflow-y: auto;
+	scrollbar-gutter: stable;
+}
+
+.row {
+	display: flex;
+	min-height: var(--bui-datagrid-row-height);
+	width: 100%;
+	min-width: fit-content;
+}
+
+.header,
+.body {
+	width: 100%;
+}
+
+:is(.header, .footer) .row {
+	background-color: var(--bui-datagrid-header-backgroundcolor);
+}
+
+.body .row {
+	background-color: var(--bui-datagrid-row-backgroundcolor);
+}
+
+:is(.header, .body) .row {
+	border-bottom: var(--bui-datagrid-borderwidth) solid
+		var(--bui-datagrid-bordercolor);
+}
+
+.cell {
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+	padding-right: 20px;
+	overflow: hidden;
+
+	/* TODO: may implement after column sizing */
+
+	/* flex-grow: 1; */
+}
+
+.cell * {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.cell:has(.input) {
+	padding: 0;
+}
+
+.header .cell,
+.row .cell > * {
+	display: flex;
+	align-items: center;
+}
+
+.header .cell {
+	background-color: darkgrey;
+}
+
+.grid .input {
+	border-radius: 0;
+	border: 0;
+	height: var(--bui-datagrid-row-height);
+	min-height: var(--bui-datagrid-row-height);
+	max-width: 100%;
+}
+
+.footer {
+	justify-content: flex-end;
+}
+
+.footer .cell {
+	gap: 5px;
+}
