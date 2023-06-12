@@ -27,7 +27,7 @@ I will also add testing for each component, just unsure as to what testing for c
 -   Checkbox ✔
 -   CheckboxField ✔
 -   Chip ✔
--   DataGrid
+-   DataGrid ✔
 -   DatePicker
 -   DateRangePicker
 -   DateTimePicker

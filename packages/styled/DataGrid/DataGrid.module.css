@@ -1,0 +1,68 @@
+.grid {
+	font-family: "Open Sans", sans-serif;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.grid * {
+	box-sizing: border-box;
+}
+
+.header {
+	display: flex;
+	font-weight: bold;
+}
+
+.cell {
+	display: flex;
+	align-items: center;
+	flex: 1;
+	min-height: 40px;
+	min-width: 0;
+}
+
+.cell * {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.cell:has(.input) {
+	padding: 0;
+}
+
+.header .cell,
+.row .cell > * {
+	padding: 4px 20px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+}
+
+.header .cell {
+	background-color: darkgrey;
+}
+
+.body {
+	font-weight: normal;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+
+.row {
+	display: flex;
+}
+
+.grid .input {
+	border-radius: 0;
+	border: 0;
+	height: 40px;
+	min-height: 40px;
+}
+
+.footer .cell {
+	gap: 5px;
+	justify-content: flex-end;
+}
