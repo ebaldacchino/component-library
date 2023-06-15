@@ -26,7 +26,7 @@ I will also add testing for each component, just unsure as to what testing for c
 -   ClickAwayListener
 -   Checkbox ✔
 -   CheckboxField ✔
--   Chip
+-   Chip ✔
 -   DataGrid
 -   DatePicker
 -   DateRangePicker
