@@ -5,6 +5,7 @@ export * from "./CheckboxField";
 export * from "./Chip";
 export * from "./Dialog";
 export * from "./Drawer";
+export * from "./FilePicker";
 export * from "./FormControl";
 export * from "./Input";
 export * from "./Popover";
