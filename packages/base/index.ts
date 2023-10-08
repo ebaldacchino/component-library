@@ -1,5 +1,6 @@
 export * from "./Button";
 export * from "./FormControl";
+export * from "./ImagePreview";
 export * from "./Input";
 export * from "./Modal";
 export * from "./Popper";
