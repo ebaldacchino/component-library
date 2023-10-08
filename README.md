@@ -36,7 +36,7 @@ I will also add testing for each component, just unsure as to what testing for c
 -   FilePicker
 -   FocusTrap
 -   FormControl ✔
--   ImagePreview
+-   ImagePreview ✔
 -   Input ✔
 -   Modal ✔
 -   Popover ✔
