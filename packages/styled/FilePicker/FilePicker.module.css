@@ -1,0 +1,45 @@
+.input {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.input:disabled {
+	pointer-events: none;
+}
+
+.input::file-selector-button {
+	display: none;
+}
+
+.form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	border-radius: 12px;
+	background: rgb(26 32 39);
+	border: 1px dashed rgb(62 80 96);
+	box-shadow: rgb(26 32 39) 0 2px 2px;
+	box-sizing: border-box;
+	width: 520px;
+	min-height: 100px;
+	font-family: var(--bui-fontfamily, "Open Sans", sans-serif);
+}
+
+.form:focus-within {
+	outline: white auto 1px;
+}
+
+.form:has(.input:disabled) {
+	opacity: 0.5;
+}
+
+.label {
+	color: rgba(205 210 215 / 70%);
+}
+
+.form:focus-within .label {
+	color: white;
+}
