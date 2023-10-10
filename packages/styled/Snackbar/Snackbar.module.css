@@ -1,0 +1,10 @@
+.snackbar div:nth-child(2) {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.snackbar div:nth-child(2) button {
+	margin: -6px;
+	margin-left: 0;
+}
