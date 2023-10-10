@@ -1,0 +1,19 @@
+{
+	"name": "styled",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "rm -rf dist && tsc"
+	},
+	"dependencies": {
+		"react": "^18.2.0",
+		"base": "workspace:*"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"typescript": "^5.1.3"
+	}
+}
