@@ -1,0 +1,19 @@
+{
+	"name": "@bui/styled",
+	"version": "0.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "rm -rf dist && tsc"
+	},
+	"dependencies": {
+		"@bui/base": "workspace:*",
+		"react": "^18.2.0"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"typescript": "^5.1.3"
+	}
+}

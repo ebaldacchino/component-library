@@ -1,0 +1,19 @@
+{
+	"name": "@bui/base",
+	"version": "0.0.0",
+	"description": "",
+	"main": "index.ts",
+	"scripts": {
+		"build": "rm -rf dist && tsc"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"typescript": "^5.1.3"
+	}
+}
