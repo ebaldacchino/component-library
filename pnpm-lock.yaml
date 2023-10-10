@@ -97,6 +97,9 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@types/css-modules':
+        specifier: ^1.0.3
+        version: 1.0.3
       typescript:
         specifier: ^5.1.3
         version: 5.1.3
@@ -110,6 +113,9 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
     devDependencies:
+      '@types/css-modules':
+        specifier: ^1.0.3
+        version: 1.0.3
       typescript:
         specifier: ^5.1.3
         version: 5.1.3
@@ -3927,6 +3933,10 @@ packages:
     resolution: {integrity: sha512-BDAkU7WHHRHnvBf5z89lcvACsvkz/n7Tv+HyD/uW76O29HoH1Tk/W6iQrepaZVbisvlEek4ygwT8IW7ow9XLAA==}
     dependencies:
       '@types/node': 20.8.4
+    dev: true
+
+  /@types/css-modules@1.0.3:
+    resolution: {integrity: sha512-dFJKRbgpu3sMsiDYX7dSL7ZMD/9q1UxbU/dZfIuVsIyRsST/agUNfR24biGeLOmh3YcdUmj71TadJ0mssFVNfA==}
     dev: true
 
   /@types/detect-port@1.3.3:
