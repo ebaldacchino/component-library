@@ -11,6 +11,7 @@ export * from "./FormControl";
 export * from "./Input";
 export * from "./Popover";
 export * from "./Select";
+export * from "./Snackbar";
 export * from "./Spinner";
 export * from "./Textarea";
 export * from "./TextField";
