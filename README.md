@@ -25,7 +25,7 @@ I will also add testing for each component, just unsure as to what testing for c
 -   Card
 -   ClickAwayListener
 -   Checkbox ✔
--   CheckboxField
+-   CheckboxField ✔
 -   Chip
 -   DataGrid
 -   DatePicker
