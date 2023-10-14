@@ -1,5 +1,6 @@
 export * from "./Button";
 export * from "./Checkbox";
+export * from "./CheckboxField";
 export * from "./FormControl";
 export * from "./Input";
 export * from "./Spinner";
