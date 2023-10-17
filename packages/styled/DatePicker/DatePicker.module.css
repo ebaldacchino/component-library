@@ -1,0 +1,57 @@
+.picker {
+	font-family: "Open Sans", sans-serif;
+	width: 300px;
+	height: 372px;
+}
+
+.days,
+.years {
+	display: grid;
+	justify-items: center;
+	gap: 8px;
+	font-family: "Open Sans", sans-serif;
+}
+
+.days {
+	width: 300px;
+	grid-template-columns: repeat(7, 1fr);
+}
+
+.years {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.day {
+	height: 32px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.header {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 16px;
+}
+
+.days button {
+	padding: 0;
+	height: 40px;
+	width: 100%;
+}
+
+:is(.years, .days, .header) button {
+	border: 0;
+	color: black;
+}
+
+:is(.years, .days, .header) button:is(:hover, :focus) {
+	background: rgba(25 118 210 / 50%);
+}
+
+button.selected {
+	background: rgb(25 118 210);
+	color: white;
+}
