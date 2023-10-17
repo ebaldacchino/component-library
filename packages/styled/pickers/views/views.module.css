@@ -1,0 +1,43 @@
+.days,
+.years {
+	display: grid;
+	justify-items: center;
+	gap: 8px;
+	font-family: var(--bui-fontfamily, "Open Sans", sans-serif);
+}
+
+.days {
+	width: 300px;
+	grid-template-columns: repeat(7, 1fr);
+}
+
+.years {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.day {
+	height: 32px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.days button {
+	padding: 0;
+	height: 40px;
+	width: 100%;
+}
+
+:is(.years, .days) button {
+	border: 0;
+	color: black;
+}
+
+:is(.years, .days) button:is(:hover, :focus) {
+	background: rgba(25 118 210 / 50%);
+}
+
+button.selected {
+	background: rgb(25 118 210);
+	color: white;
+}

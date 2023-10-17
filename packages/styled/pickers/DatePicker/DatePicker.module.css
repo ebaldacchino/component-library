@@ -1,0 +1,22 @@
+.picker {
+	font-family: var(--bui-fontfamily, "Open Sans", sans-serif);
+	width: 300px;
+	height: 372px;
+}
+
+.header {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 16px;
+}
+
+.header button {
+	border: 0;
+	color: black;
+}
+
+.header button:is(:hover, :focus) {
+	background: rgba(25 118 210 / 50%);
+}
