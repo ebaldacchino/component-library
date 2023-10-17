@@ -37,7 +37,7 @@ I will also add testing for each component, just unsure as to what testing for c
     -   No rows overlay
     -   Row sorting
 	-   Theming (CSS variables)
--   DatePicker
+-   DatePicker ✔
 -   DateRangePicker
 -   DateTimePicker
 -   Dialog ✔
