@@ -29,7 +29,7 @@ I will also add testing for each component, just unsure as to what testing for c
 -   Chip ✔
 -   DataGrid ✔
 -   DatePicker ✔
--   DateRangePicker
+-   DateRangePicker ✔
 -   DateTimePicker
 -   Dialog ✔
 -   Drawer ✔
