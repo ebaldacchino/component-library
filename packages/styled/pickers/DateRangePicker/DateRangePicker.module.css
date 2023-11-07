@@ -1,0 +1,51 @@
+.picker {
+	display: flex;
+	justify-content: space-between;
+	font-family: var(--bui-fontfamily, "Open Sans", sans-serif);
+	width: 630px;
+	position: relative;
+}
+
+.picker::after {
+	position: absolute;
+	inset: 20px 0;
+	margin: auto;
+	content: "";
+	background: rgba(211 211 211 / 30%);
+	width: 1px;
+}
+
+.header {
+	display: flex;
+	position: relative;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 16px;
+}
+
+.header span {
+	position: absolute;
+	inset: 0;
+	width: fit-content;
+	height: fit-content;
+	margin: auto;
+	text-align: center;
+}
+
+.header button {
+	border: 0;
+	color: black;
+}
+
+.header button:is(:hover, :focus) {
+	background: rgba(25 118 210 / 50%);
+}
+
+.header .leftarrow {
+	margin-right: auto;
+}
+
+.header .rightarrow {
+	margin-left: auto;
+}
