@@ -1,8 +1,8 @@
 {
-	"name": "@bui/base",
+	"name": "@bui/utils",
 	"version": "0.0.0",
 	"description": "",
-	"main": "index.ts",
+	"main": "src/index.ts",
 	"scripts": {
 		"build": "rm -rf dist && tsc"
 	},
@@ -14,7 +14,6 @@
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
-		"@bui/utils": "workspace:*",
 		"@types/css-modules": "^1.0.3",
 		"typescript": "^5.1.3"
 	}
