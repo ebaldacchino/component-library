@@ -4,12 +4,15 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
+		"dev:pkg": "tsx scripts/toggle-package-mode.ts dev",
+		"prod:pkg": "tsx scripts/toggle-package-mode.ts prod",
+		"build:pkg": "pnpm run dev:pkg && pnpm -C packages/base run build && pnpm -C packages/styled run build && git clean -f && git restore .",
 		"dev": "vite",
 		"tsc": "tsc",
 		"lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
-		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
+		"storybook": "pnpm run dev:pkg && storybook dev -p 6006",
+		"build-storybook": "pnpm run dev:pkg && storybook build"
 	},
 	"dependencies": {
 		"@fontsource/open-sans": "catalog:",
@@ -39,6 +42,7 @@
 		"storybook": "catalog:",
 		"stylelint": "catalog:",
 		"stylelint-config-standard": "catalog:",
+		"tsx": "catalog:",
 		"typescript": "catalog:",
 		"vite": "catalog:"
 	}
