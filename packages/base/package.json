@@ -2,9 +2,20 @@
 	"name": "@bui/base",
 	"version": "0.0.0",
 	"description": "",
-	"main": "index.ts",
+	"files": [
+		"dist"
+	],
+	"main": "./dist/base.umd.js",
+	"module": "./dist/base.mjs",
+	"types": "./dist/types/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/base.mjs",
+			"require": "./dist/base.umd.js"
+		}
+	},
 	"scripts": {
-		"build": "rm -rf dist && tsc"
+		"build": "tsc && vite build"
 	},
 	"keywords": [],
 	"author": "",
@@ -16,6 +27,8 @@
 	"devDependencies": {
 		"@bui/utils": "workspace:*",
 		"@types/css-modules": "catalog:",
-		"typescript": "catalog:"
+		"@vitejs/plugin-react": "catalog:",
+		"typescript": "catalog:",
+		"vite": "catalog:"
 	}
 }

@@ -2,9 +2,20 @@
 	"name": "@bui/styled",
 	"version": "0.0.0",
 	"description": "",
-	"main": "index.js",
+	"files": [
+		"dist"
+	],
+	"main": "./dist/styled.umd.js",
+	"module": "./dist/styled.mjs",
+	"types": "./dist/types/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/styled.mjs",
+			"require": "./dist/styled.umd.js"
+		}
+	},
 	"scripts": {
-		"build": "rm -rf dist && tsc"
+		"build": "tsc && vite build"
 	},
 	"dependencies": {
 		"@bui/base": "workspace:*",
@@ -20,6 +31,8 @@
 	"license": "ISC",
 	"devDependencies": {
 		"@types/css-modules": "catalog:",
-		"typescript": "catalog:"
+		"@vitejs/plugin-react": "catalog:",
+		"typescript": "catalog:",
+		"vite": "catalog:"
 	}
 }

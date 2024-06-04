@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"emitDeclarationOnly": true,
+		"declaration": true,
+		"outDir": "./dist/types",
+		"skipLibCheck": true,
+		"strict": true
+	},
+	"exclude": ["dist", "node_modules", "**/*.stories.ts*", "vite.config.ts"]
+}
