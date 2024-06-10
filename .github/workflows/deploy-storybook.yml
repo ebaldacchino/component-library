@@ -1,0 +1,38 @@
+name: Deploy Storybook
+
+on: workflow_dispatch
+
+# Steps to add:
+
+# Lint
+# Types check
+# Unit Tests
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Install
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9
+                  run_install: true
+
+            - name: Build Storybook
+              run: pnpm run build-storybook
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ap-southeast-2
+
+            - name: Deploy to S3
+              run: aws s3 sync ./storybook-static/ s3://bui-storybook --delete
+
+            - name: Clear CloudFront cache
+              run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
