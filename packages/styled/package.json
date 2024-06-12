@@ -20,6 +20,6 @@
 	"license": "ISC",
 	"devDependencies": {
 		"@types/css-modules": "^1.0.3",
-		"typescript": "^5.1.3"
+		"typescript": "^5.4.5"
 	}
 }
