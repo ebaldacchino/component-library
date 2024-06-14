@@ -319,7 +319,8 @@ export function usePopper(
 ) {
 	const popperEl = useRef<HTMLDivElement>(null);
 
-	useImperativeHandle(ref, () => popperEl.current);
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	useImperativeHandle(ref, () => popperEl.current!);
 
 	const [currentPlacement, setCurrentPlacement] = useState<TPopperPlacement>(
 		props.placement
