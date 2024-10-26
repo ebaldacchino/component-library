@@ -9,7 +9,7 @@
 		"build:pkg": "pnpm run dev:pkg && pnpm -C packages/base run build && pnpm -C packages/styled run build && git clean -f && git restore .",
 		"dev": "vite",
 		"tsc": "tsc",
-		"lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"lint": "eslint",
 		"preview": "vite preview",
 		"storybook": "pnpm run dev:pkg && storybook dev -p 6006",
 		"build-storybook": "pnpm run dev:pkg && storybook build"
@@ -21,6 +21,9 @@
 	},
 	"devDependencies": {
 		"@chromatic-com/storybook": "catalog:",
+		"@eslint/compat": "catalog:",
+		"@eslint/eslintrc": "catalog:",
+		"@eslint/js": "catalog:",
 		"@storybook/addon-essentials": "catalog:",
 		"@storybook/addon-interactions": "catalog:",
 		"@storybook/addon-links": "catalog:",
@@ -37,6 +40,7 @@
 		"eslint-plugin-react-hooks": "catalog:",
 		"eslint-plugin-react-refresh": "catalog:",
 		"eslint-plugin-storybook": "catalog:",
+		"globals": "catalog:",
 		"prettier": "catalog:",
 		"prop-types": "catalog:",
 		"storybook": "catalog:",
