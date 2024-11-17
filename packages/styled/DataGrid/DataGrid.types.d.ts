@@ -14,6 +14,11 @@ type PinnedPositions = "left" | "right";
 
 type SortDirection = "ASC" | "DESC";
 
+export interface TabbableCell<T extends object> {
+	field: keyof T;
+	rowId: string | undefined;
+}
+
 export type SortModel<T extends object> = {
 	field: keyof T;
 	direction: SortDirection;
@@ -65,6 +70,7 @@ export interface DataGridInternalColumn<T extends object>
 	pinnedPosition?: PinnedPositions;
 	left?: number;
 	right?: number;
+	columnIndex: number;
 }
 
 export interface DataGridInternalPinnedColumns<T extends object> {

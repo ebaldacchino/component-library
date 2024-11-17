@@ -7,14 +7,25 @@ interface DataGridRowProps<T extends object> {
 	row: T;
 	columns: DataGridInternalColumn<T>[];
 	style: CSSProperties;
+	rowIndex: number;
+	tabbableField: keyof T | undefined;
 }
 
 function DataGridRow<T extends object>(props: DataGridRowProps<T>) {
-	const { columns, row, style } = props;
+	const { columns, row, style, rowIndex, tabbableField } = props;
 	return (
-		<div className={styles.row} style={style}>
+		<div className={styles.row} style={style} data-rowindex={rowIndex}>
 			{columns.map((col) => {
-				return <DataGridRowCell key={col.field} {...col} row={row} />;
+				const isCellTabbable = col.field === tabbableField;
+				return (
+					<DataGridRowCell
+						key={col.field}
+						{...col}
+						row={row}
+						rowIndex={rowIndex}
+						isCellTabbable={isCellTabbable}
+					/>
+				);
 			})}
 		</div>
 	);

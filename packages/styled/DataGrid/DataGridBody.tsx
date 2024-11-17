@@ -33,15 +33,23 @@ export function DataGridBody<T extends object>() {
 				const gridHeader = e.currentTarget.parentElement?.children[0];
 				gridHeader?.scrollTo({ left: e.currentTarget.scrollLeft });
 			}}
+			tabIndex={-1}
 		>
-			{rows.map((row) => {
+			{rows.map((row, index) => {
 				const id = row[rowId]?.toString();
+				const tabbableField =
+					id === ctx.tabbableCell.rowId
+						? ctx.tabbableCell.field
+						: undefined;
 				return (
 					<MemoizedDataGridRow
 						key={id}
 						row={row}
 						columns={columns}
 						style={rowStyle}
+						// The header has an rowIndex of 0
+						rowIndex={index + 1}
+						tabbableField={tabbableField}
 					/>
 				);
 			})}

@@ -228,6 +228,11 @@ body:has(.cell.reordering) > * {
 	gap: 5px;
 }
 
+.cell:focus {
+	outline: rgb(144 202 249) solid 1px;
+	outline-offset: -1px;
+}
+
 body:has(.cell.reordering) .row .cell {
 	transition: left 200ms ease-in-out;
 }

@@ -58,10 +58,6 @@ export function useDataGridColumnReordering<T extends object>(
 		});
 	}, [columns]);
 	const [startColumns, setStartColumns] = useState(orderedColumns);
-	const currentIndex = useMemo(
-		() => orderedColumns.findIndex((c) => c.field === column.field),
-		[column.field, orderedColumns]
-	);
 	const cellEl = useRef<HTMLElement | null>(null);
 
 	function handlePointerEnd() {
@@ -88,7 +84,7 @@ export function useDataGridColumnReordering<T extends object>(
 			0,
 			pinnedLeftColumnsCount
 		);
-		let newIndex = currentIndex;
+		let newIndex = column.columnIndex;
 		const distanceFromHeaderX = e.clientX - headerX;
 
 		for (let i = pinnedLeftColumnsCount; i < lastReorderableIndex; i++) {
@@ -103,7 +99,7 @@ export function useDataGridColumnReordering<T extends object>(
 		const { left, top } = coordsMovement.current;
 		setCoords({ left: e.clientX - left, top: e.clientY - top });
 
-		if (newIndex !== currentIndex) {
+		if (newIndex !== column.columnIndex) {
 			ctx.setColumnOrder(
 				getNewColumnOrder(column, startColumns, newIndex)
 			);

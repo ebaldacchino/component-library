@@ -10,6 +10,8 @@ import { useDataGridContext } from "./useDataGridContext";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconButton } from "../Button/IconButton";
+import { useDataGridHeaderKeyboardNavigation } from "./useDataGridHeaderKeyboardNavigation";
+import React from "react";
 
 function DataGridResizer<T extends object>(props: DataGridHeaderCellProps<T>) {
 	const isPinnedRight = props.pinnedPosition === "right";
@@ -45,7 +47,7 @@ function useDataGridSorting<T extends object>(
 		return undefined;
 	}
 
-	return function (e: React.MouseEvent) {
+	return function (e: React.MouseEvent | React.KeyboardEvent) {
 		e.preventDefault();
 		e.stopPropagation();
 
@@ -84,6 +86,7 @@ function DataGridSortButton<T extends object>(props: {
 			className={className}
 			onClick={handleUpdateSortModel}
 			aria-label="Sort"
+			tabIndex={-1}
 		>
 			<FontAwesomeIcon icon={faArrowUp} />
 		</IconButton>
@@ -93,6 +96,7 @@ function DataGridSortButton<T extends object>(props: {
 export function DataGridHeaderCell<T extends object>(
 	props: DataGridHeaderCellProps<T>
 ) {
+	const ctx = useDataGridContext<T>();
 	const { coords, handleReorderStart, isReordering } =
 		useDataGridColumnReordering(props);
 
@@ -105,6 +109,22 @@ export function DataGridHeaderCell<T extends object>(
 		[styles.pointer]: !disableReorder || !disableSort,
 	});
 	const updateSortModel = useDataGridSorting(field, !disableSort);
+	const { handleKeyNavigation, navigateToCell } =
+		useDataGridHeaderKeyboardNavigation(props, updateSortModel);
+
+	const isCellTabbable =
+		ctx.tabbableCell.field === field &&
+		ctx.tabbableCell.rowId === undefined;
+
+	function handleFocus(e: React.FocusEvent) {
+		e.preventDefault();
+		const header = e.currentTarget.parentElement?.parentElement;
+		const grid = header?.parentElement;
+		const body = grid?.getElementsByClassName(styles.body)[0];
+		if (body && header) {
+			body.scrollTo({ left: header.scrollLeft });
+		}
+	}
 
 	return (
 		<>
@@ -122,7 +142,13 @@ export function DataGridHeaderCell<T extends object>(
 				className={className}
 				{...props}
 				onPointerDown={handleReorderStart}
-				onClick={updateSortModel}
+				onKeyDown={isCellTabbable ? handleKeyNavigation : undefined}
+				onClick={(e) => {
+					updateSortModel?.(e);
+					navigateToCell(e);
+				}}
+				onFocus={handleFocus}
+				isCellTabbable={isCellTabbable}
 			>
 				<Tooltip title={label ?? field}>
 					<span className={styles.text}>{label ?? field}</span>

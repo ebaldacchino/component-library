@@ -12,6 +12,7 @@ import type {
 	DataGridProps,
 	RowId,
 	SortModel,
+	TabbableCell,
 } from "./DataGrid.types";
 
 export type IDataGridContext<T extends object> = Omit<
@@ -33,6 +34,8 @@ export type IDataGridContext<T extends object> = Omit<
 	columnVisibilityModel: ColumnVisibilityModel<T>;
 	sortModel: SortModel<T> | null;
 	setSortModel: Dispatch<SetStateAction<SortModel<T> | null>>;
+	tabbableCell: TabbableCell<T>;
+	setTabbableCell: Dispatch<SetStateAction<TabbableCell<T>>>;
 };
 
 export const DataGridContext = createContext<IDataGridContext<{ id: Key }>>({
@@ -60,6 +63,13 @@ export const DataGridContext = createContext<IDataGridContext<{ id: Key }>>({
 	columnVisibilityModel: {},
 	sortModel: null,
 	setSortModel: () => {
+		/**/
+	},
+	tabbableCell: {
+		rowIndex: 0,
+		columnIndex: 0,
+	},
+	setTabbableCell: () => {
 		/**/
 	},
 });

@@ -4,6 +4,7 @@ import type { DataGridProviderProps } from "./DataGrid.types";
 import { useDataGridColumns } from "./useDataGridColumns";
 import { useDataGridSortModel } from "./useDataGridSortModel";
 import { useDataGridRows } from "./useDataGridRows";
+import { useDataGridTabbableCell } from "./useDataGridTabbableCell";
 
 export function DataGridProvider<T extends object>(
 	props: DataGridProviderProps<T>
@@ -24,6 +25,12 @@ export function DataGridProvider<T extends object>(
 
 	const { sortModel, setSortModel } = useDataGridSortModel(columns);
 	const rows = useDataGridRows(props.rows, sortModel);
+	const { tabbableCell, setTabbableCell } = useDataGridTabbableCell(
+		rows,
+		columns,
+		columnVisibilityModel,
+		props.rowId
+	);
 
 	const rowWidth = useMemo(() => {
 		{
@@ -50,6 +57,8 @@ export function DataGridProvider<T extends object>(
 		sortModel,
 		setSortModel,
 		rows,
+		tabbableCell,
+		setTabbableCell,
 	} as IDataGridContext<T>;
 
 	const ctx = DataGridContext as unknown as Context<typeof value>;

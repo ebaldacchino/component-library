@@ -127,7 +127,7 @@ function processColumns<T extends object>(
 		internalColumn.pinnedPosition = pinnedPosition;
 
 		const collection = !pinnedPosition ? unpinned : pinned[pinnedPosition];
-		collection.push(internalColumn);
+		collection.push(internalColumn as DataGridInternalColumn<T>);
 	}
 
 	const coords = { left: 0, right: 0 };
@@ -168,6 +168,14 @@ function processColumns<T extends object>(
 
 		const innerRightColumn = pinned.right[0];
 		assignBorderPositionToColumn(innerRightColumn, "left");
+	}
+
+	const orderedInternalColumns = pinned.left
+		.concat(unpinned)
+		.concat(pinned.right);
+
+	for (let i = 0; i < orderedInternalColumns.length; i++) {
+		orderedInternalColumns[i].columnIndex = i;
 	}
 
 	// Just a temporary hack to not manipulate the order of the unpinned DOM elements. We need to not reorder the DOM elements to support the reordering animation

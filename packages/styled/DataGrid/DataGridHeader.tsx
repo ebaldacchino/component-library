@@ -17,7 +17,7 @@ export function DataGridHeader<T extends object>() {
 
 	return (
 		<div className={headerClassNames}>
-			<div className={styles.row} style={style}>
+			<div className={styles.row} style={style} data-rowindex={0}>
 				{ctx.columns.map((column) => (
 					<DataGridHeaderCell key={column.field} {...column} />
 				))}

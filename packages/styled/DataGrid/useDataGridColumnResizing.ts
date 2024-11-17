@@ -157,18 +157,12 @@ export function useDataGridColumnResizing<T extends object>(
 			}
 		}
 
-		const headerCells = Array.from(headerInnerContainer.children);
-
 		const rows = Array.from(
 			dataGridContainer.querySelectorAll(`.${styles.body} .${styles.row}`)
 		);
 
-		const columnIndex = headerCells.findIndex(
-			(cell) => cell === headerCell
-		);
-
 		newColumnWidth = rows.reduce((width, row) => {
-			const rowCell = row.children[columnIndex];
+			const rowCell = row.children[column.columnIndex];
 			const idealRowCellWidth = calculateMinimumCellWidthToAvoidOverflow(
 				headerCell,
 				column,
