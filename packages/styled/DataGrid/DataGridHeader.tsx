@@ -22,7 +22,11 @@ export function DataGridHeader<T extends object>() {
 					<DataGridHeaderCell key={column.field} {...column} />
 				))}
 				{!hasRightPinnedColumns && (
-					<div role="presentation" className={styles.filler} />
+					<div
+						role="presentation"
+						className={styles.filler}
+						style={{ left: ctx.rowWidth }}
+					/>
 				)}
 			</div>
 		</div>
