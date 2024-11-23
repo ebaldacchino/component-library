@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { DataGrid } from "./DataGrid";
-import type { DataGridColumn } from "./DataGrid.types";
+import type { DataGridColumn, DataGridProps } from "./DataGrid.types";
 import mockData from "./MOCK_DATA.json";
+import { DataGridInput } from "./DataGrid.fields";
+import React, { useMemo, useState } from "react";
 
 interface IMockData {
 	id: number;
@@ -15,7 +17,13 @@ function generateColumns(
 	pinnedPosition?: "left" | "right"
 ): DataGridColumn<IMockData>[] {
 	return [
-		{ field: "name", label: "Full Name", pinnedPosition, minWidth: 120 },
+		{
+			field: "name",
+			label: "Full Name",
+			pinnedPosition,
+			minWidth: 120,
+			render: DataGridInput,
+		},
 		{ field: "age", label: "Age", minWidth: 100 },
 		{
 			field: "gender",
@@ -25,44 +33,53 @@ function generateColumns(
 			minWidth: 100,
 			isDefaultHidden: true,
 		},
-		{ field: "id", label: "ID", canHide: false, minWidth: 100, canSort: false },
+		{
+			field: "id",
+			label: "ID",
+			canHide: false,
+			minWidth: 100,
+			canSort: false,
+		},
 		{ field: "role", label: "Role", minWidth: 120 },
 	] satisfies DataGridColumn<IMockData>[];
 }
 
-// function Template(args: DataGridProps<IMockData>) {
-// 	const [rows, setRows] = useState<IMockData[]>(mockData);
-// 	const columns: DataGridColumn<IMockData>[] = useMemo(
-// 		() => [
-// 			...generateColumns("right"),
-// 			{
-// 				field: "role",
-// 				label: "Role",
-// 				render: createDataGridInput(setRows),
-// 				width: 200,
-// 			},
-// 		],
-// 		[]
-// 	);
-// 	const DATAGRID_ROW_HEIGHT = 48;
-// 	const visibleRows = (args.paginationSize ?? 10) + 2;
-// 	const height = visibleRows * DATAGRID_ROW_HEIGHT;
-// 	return (
-// 		<div style={{ height, width: 700 }}>
-// 			<DataGrid
-// 				columns={columns}
-// 				rows={rows}
-// 				paginationSize={args.paginationSize}
-// 			/>
-// 		</div>
-// 	);
-// }
+function Template(args: DataGridProps<IMockData>) {
+	const [rows, setRows] = useState<IMockData[]>(mockData);
+	const columns: DataGridColumn<IMockData>[] = useMemo(
+		() => generateColumns("right"),
+		[]
+	);
+	const DATAGRID_ROW_HEIGHT = 48;
+	const visibleRows = (args.paginationSize ?? 10) + 2;
+	const height = visibleRows * DATAGRID_ROW_HEIGHT;
+
+	return (
+		<div style={{ height, width: 700 }}>
+			<DataGrid
+				columns={columns}
+				rows={rows}
+				paginationSize={args.paginationSize}
+				onUpdateCell={(newValue, field, rowId) => {
+					setRows((prev) => {
+						const result = [...prev];
+						const index = result.findIndex(
+							(prevRow) => prevRow.id === rowId
+						);
+						result[index] = { ...result[index], [field]: newValue };
+						return result;
+					});
+				}}
+			/>
+		</div>
+	);
+}
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
 	title: "Components/DataGrid",
 	component: DataGrid,
-	// render: Template,
+	render: Template,
 	tags: ["autodocs"],
 	args: {
 		columns: generateColumns(),

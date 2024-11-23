@@ -61,6 +61,7 @@ export type DataGridProps<T extends object> = RowIdProps<T> & {
 	pinnedColumns?: PinnedColumns<T>;
 	columnWidths?: ColumnWidths;
 	disableColumnReorder?: boolean;
+	onUpdateCell?: (newValue: string, field: keyof T, rowId: RowId<T>) => void;
 };
 
 export interface DataGridInternalColumn<T extends object>
