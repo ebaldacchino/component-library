@@ -34,6 +34,7 @@ export function DataGridBody<T extends object>() {
 				gridHeader?.scrollTo({ left: e.currentTarget.scrollLeft });
 			}}
 			tabIndex={-1}
+			role="rowgroup"
 		>
 			{rows.map((row, index) => {
 				const id = row[rowId]?.toString();

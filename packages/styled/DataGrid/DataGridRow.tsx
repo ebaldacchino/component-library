@@ -14,7 +14,13 @@ interface DataGridRowProps<T extends object> {
 function DataGridRow<T extends object>(props: DataGridRowProps<T>) {
 	const { columns, row, style, rowIndex, tabbableField } = props;
 	return (
-		<div className={styles.row} style={style} data-rowindex={rowIndex}>
+		<div
+			className={styles.row}
+			style={style}
+			role="row"
+			data-rowindex={rowIndex}
+			aria-rowindex={rowIndex + 1}
+		>
 			{columns.map((col) => {
 				const isCellTabbable = col.field === tabbableField;
 				return (

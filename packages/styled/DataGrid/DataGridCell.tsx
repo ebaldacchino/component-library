@@ -14,6 +14,8 @@ interface DataGridCellProps<T extends object>
 	transform?: CSSProperties["transform"];
 	top?: number;
 	isCellTabbable?: boolean;
+	ariaSort?: React.AriaAttributes["aria-sort"];
+	role?: React.AriaRole;
 }
 
 function calculateTabIndex(isCellTabbable: boolean | undefined) {
@@ -40,6 +42,8 @@ export function DataGridCell<T extends object>(props: DataGridCellProps<T>) {
 		width,
 		transform,
 		columnIndex,
+		ariaSort,
+		role,
 	} = props;
 
 	const cellClassNames = classNames(styles.cell, className, {
@@ -57,7 +61,10 @@ export function DataGridCell<T extends object>(props: DataGridCellProps<T>) {
 			onClick={onClick}
 			tabIndex={calculateTabIndex(props.isCellTabbable)}
 			data-columnindex={columnIndex}
+			aria-colindex={columnIndex + 1}
+			role={role}
 			onFocus={onFocus}
+			aria-sort={ariaSort}
 		>
 			{children}
 		</div>

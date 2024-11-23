@@ -14,6 +14,9 @@ export function DataGrid<T extends object>(props: DataGridProps<T>) {
 		<div
 			className={classNames(styles.grid, props.className)}
 			style={props.style}
+			role="grid"
+			aria-rowcount={props.rows.length}
+			aria-colcount={props.columns.length}
 		>
 			<DataGridProvider {...providerProps} rowId={typedRowId}>
 				<DataGridHeader />

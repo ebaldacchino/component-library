@@ -16,8 +16,8 @@ export function DataGridHeader<T extends object>() {
 	}, [ctx.rowWidth]);
 
 	return (
-		<div className={headerClassNames}>
-			<div className={styles.row} style={style} data-rowindex={0}>
+		<div className={headerClassNames} role="rowgroup">
+			<div className={styles.row} style={style} data-rowindex={0} role="row" aria-rowindex={1}>
 				{ctx.columns.map((column) => (
 					<DataGridHeaderCell key={column.field} {...column} />
 				))}

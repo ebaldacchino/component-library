@@ -32,6 +32,7 @@ export function DataGridRowCellRaw<T extends object>(
 			onKeyDown={handleKeyNavigation}
 			onClick={navigateToCell}
 			isCellTabbable={props.isCellTabbable}
+			role="gridcell"
 		>
 			<Inner {...props} />
 		</DataGridCell>

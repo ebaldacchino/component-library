@@ -1,5 +1,5 @@
 import { Tooltip } from "../Tooltip";
-import type { DataGridHeaderCellProps } from "./DataGrid.types";
+import type { DataGridHeaderCellProps, SortDirection } from "./DataGrid.types";
 import { DataGridCell } from "./DataGridCell";
 import styles from "./DataGrid.module.css";
 import { classNames } from "@bui/utils";
@@ -37,17 +37,33 @@ function DataGridResizer<T extends object>(props: DataGridHeaderCellProps<T>) {
 	);
 }
 
+function calculateAriaSort(
+	direction: SortDirection | false
+): React.AriaAttributes["aria-sort"] {
+	switch (direction) {
+		case "ASC":
+			return "ascending";
+		case "DESC":
+			return "descending";
+		default:
+			return undefined;
+	}
+}
+
 function useDataGridSorting<T extends object>(
 	field: keyof T & string,
 	canSort = true
 ) {
-	const { setSortModel } = useDataGridContext<T>();
+	const { setSortModel, sortModel } = useDataGridContext<T>();
 
 	if (!canSort) {
-		return undefined;
+		return {};
 	}
 
-	return function (e: React.MouseEvent | React.KeyboardEvent) {
+	const sortDirection = sortModel?.field === field && sortModel.direction;
+	const ariaSort = calculateAriaSort(sortDirection);
+
+	function updateSortModel(e: React.MouseEvent | React.KeyboardEvent) {
 		e.preventDefault();
 		e.stopPropagation();
 
@@ -62,7 +78,9 @@ function useDataGridSorting<T extends object>(
 
 			return null;
 		});
-	};
+	}
+
+	return { ariaSort, updateSortModel };
 }
 
 function DataGridSortButton<T extends object>(props: {
@@ -71,7 +89,7 @@ function DataGridSortButton<T extends object>(props: {
 	const { field } = props;
 	const { sortModel } = useDataGridContext<T>();
 
-	const handleUpdateSortModel = useDataGridSorting(field);
+	const { updateSortModel } = useDataGridSorting(field);
 
 	const isColumnSorted = sortModel?.field === field;
 	const isDescending = isColumnSorted && sortModel?.direction === "DESC";
@@ -84,7 +102,7 @@ function DataGridSortButton<T extends object>(props: {
 	return (
 		<IconButton
 			className={className}
-			onClick={handleUpdateSortModel}
+			onClick={updateSortModel}
 			aria-label="Sort"
 			tabIndex={-1}
 		>
@@ -108,7 +126,10 @@ export function DataGridHeaderCell<T extends object>(
 	const className = classNames({
 		[styles.pointer]: !disableReorder || !disableSort,
 	});
-	const updateSortModel = useDataGridSorting(field, !disableSort);
+	const { ariaSort, updateSortModel } = useDataGridSorting(
+		field,
+		!disableSort
+	);
 	const { handleKeyNavigation, navigateToCell } =
 		useDataGridHeaderKeyboardNavigation(props, updateSortModel);
 
@@ -149,6 +170,8 @@ export function DataGridHeaderCell<T extends object>(
 				}}
 				onFocus={handleFocus}
 				isCellTabbable={isCellTabbable}
+				ariaSort={ariaSort}
+				role="columnheader"
 			>
 				<Tooltip title={label ?? field}>
 					<span className={styles.text}>{label ?? field}</span>
