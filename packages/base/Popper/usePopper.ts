@@ -1,5 +1,4 @@
 import {
-	type ForwardedRef,
 	type RefObject,
 	useCallback,
 	useEffect,
@@ -10,14 +9,15 @@ import {
 import { useEventListener } from "@bui/utils";
 import type {
 	IPopperLocation,
+	PopperProps,
 	TPopperPlacement,
 	TPopperPlacementPrefix,
 	TPopperPlacementSuffix,
 } from "./Popper.types";
 
-function useResizeObserver(
-	anchor: RefObject<HTMLElement>,
-	element: RefObject<HTMLElement>,
+function useResizeObserver<T extends HTMLElement | null>(
+	anchor: RefObject<T>,
+	element: RefObject<T>,
 	callback: () => void,
 	isEnabled: boolean
 ) {
@@ -309,14 +309,8 @@ function isElementDisplayNone(el: HTMLElement) {
 	return window.getComputedStyle(el).display === "none";
 }
 
-export function usePopper(
-	props: {
-		isVisible: boolean;
-		anchor: RefObject<HTMLElement>;
-		placement: TPopperPlacement;
-	},
-	ref: ForwardedRef<HTMLElement>
-) {
+export function usePopper(props: PopperProps) {
+	const { ref } = props;
 	const popperEl = useRef<HTMLDivElement>(null);
 
 	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion

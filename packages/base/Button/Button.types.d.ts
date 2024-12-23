@@ -6,12 +6,15 @@ interface IButtonBase {
 
 export interface IButton
 	extends IButtonBase,
-		React.ButtonHTMLAttributes<HTMLButtonElement> {}
+		React.ButtonHTMLAttributes<HTMLButtonElement> {
+	ref?: React.RefObject<HTMLButtonElement>;
+}
 
 export interface ILinkButton
 	extends IButtonBase,
 		React.AnchorHTMLAttributes<HTMLAnchorElement> {
 	href: string;
+	ref?: React.RefObject<HTMLAnchorElement>;
 }
 
 export type ButtonProps = IButton | ILinkButton;

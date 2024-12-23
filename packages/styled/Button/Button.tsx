@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import {
 	Button as ButtonBase,
 	type ButtonProps as BaseButtonProps,
@@ -10,7 +9,7 @@ type ButtonProps = BaseButtonProps & {
 	variant?: "primary" | "secondary";
 };
 
-export const Button = forwardRef<HTMLElement, ButtonProps>((props, ref) => {
+export function Button(props: ButtonProps) {
 	const { variant = "primary" } = props;
 
 	const className = classNames(
@@ -23,5 +22,5 @@ export const Button = forwardRef<HTMLElement, ButtonProps>((props, ref) => {
 		}
 	);
 
-	return <ButtonBase {...props} className={className} ref={ref} />;
-});
+	return <ButtonBase {...props} className={className} />;
+}

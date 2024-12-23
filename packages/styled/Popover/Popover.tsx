@@ -4,7 +4,7 @@ import styles from "./Popover.module.css";
 import { classNames, useEventListener, useTransitionRender } from "@bui/utils";
 
 interface PopoverProps {
-	children: JSX.Element;
+	children: React.JSX.Element;
 	title: string;
 	placement: TPopperPlacement;
 	className?: string;

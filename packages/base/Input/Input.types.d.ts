@@ -8,4 +8,5 @@ type TInputHTMLAttributes = Omit<
 export interface InputProps extends TInputHTMLAttributes {
 	prefix?: ReactNode;
 	suffix?: ReactNode;
+	ref?: React.RefObject<HTMLInputElement | null>;
 }

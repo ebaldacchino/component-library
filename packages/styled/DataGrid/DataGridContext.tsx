@@ -66,8 +66,8 @@ export const DataGridContext = createContext<IDataGridContext<{ id: Key }>>({
 		/**/
 	},
 	tabbableCell: {
-		rowIndex: 0,
-		columnIndex: 0,
+		field: "id",
+		rowId: undefined,
 	},
 	setTabbableCell: () => {
 		/**/

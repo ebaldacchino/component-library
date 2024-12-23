@@ -176,7 +176,7 @@ export function DatePicker(props: DatePickerProps) {
 		return date;
 	}
 
-	let inner: JSX.Element;
+	let inner: React.JSX.Element;
 
 	switch (currentView) {
 		case "day":

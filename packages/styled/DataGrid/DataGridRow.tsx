@@ -41,4 +41,4 @@ const typedMemo: <T>(c: T) => T = memo;
 
 export const MemoizedDataGridRow: <T extends object>(
 	props: DataGridRowProps<T>
-) => JSX.Element = typedMemo(DataGridRow);
+) => React.JSX.Element = typedMemo(DataGridRow);

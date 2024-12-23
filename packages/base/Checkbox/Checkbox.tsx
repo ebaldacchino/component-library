@@ -1,4 +1,4 @@
-import { type InputHTMLAttributes, forwardRef } from "react";
+import { type InputHTMLAttributes } from "react";
 
 type CheckboxHtmlAttributes = Omit<
 	InputHTMLAttributes<HTMLElement>,
@@ -8,17 +8,15 @@ type CheckboxHtmlAttributes = Omit<
 export interface CheckboxProps extends CheckboxHtmlAttributes {
 	checked: boolean;
 	onChange: (newValue: boolean) => void;
+	ref?: React.RefObject<HTMLInputElement>;
 }
 
-export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-	(props, ref) => {
-		return (
-			<input
-				{...props}
-				onChange={(e) => props.onChange(e.currentTarget.checked)}
-				type="checkbox"
-				ref={ref}
-			/>
-		);
-	}
-);
+export function Checkbox(props: CheckboxProps) {
+	return (
+		<input
+			{...props}
+			onChange={(e) => props.onChange(e.currentTarget.checked)}
+			type="checkbox"
+		/>
+	);
+}

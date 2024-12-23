@@ -1,11 +1,10 @@
-import { forwardRef } from "react";
 import { Portal } from "../Portal";
 import type { PopperProps } from "./Popper.types";
 import { usePopper } from "./usePopper";
 
-export const Popper = forwardRef<HTMLElement, PopperProps>((props, ref) => {
+export function Popper(props: PopperProps) {
 	const { children } = props;
-	const { currentPlacement, location, popperEl } = usePopper(props, ref);
+	const { currentPlacement, location, popperEl } = usePopper(props);
 
 	return (
 		<Portal container={document.body} isVisible={props.isVisible}>
@@ -16,4 +15,4 @@ export const Popper = forwardRef<HTMLElement, PopperProps>((props, ref) => {
 			})}
 		</Portal>
 	);
-});
+}
