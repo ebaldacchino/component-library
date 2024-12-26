@@ -32,20 +32,14 @@
 	align-items: center;
 	justify-content: center;
 	pointer-events: none;
-	transform: rotate(-90deg) scale(0.75);
+	rotate: -90deg;
+	scale: 0.75;
 	fill: rgb(205 210 215);
 	position: absolute;
 	inset: 0 10px 0 auto;
-	transition: transform ease-in-out 200ms;
+	transition: rotate ease-in-out 200ms;
 }
 
-.container > div:focus,
-.container > div:focus-within {
+.container > div:has(select:focus) {
 	outline: white auto 1px;
-}
-
-/* This doesn't work. Will have to make the dropdown. */
-
-.container:has(select:focus) > div > div {
-	transform: rotate(90deg) scale(0.75);
 }

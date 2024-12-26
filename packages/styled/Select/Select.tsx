@@ -3,7 +3,7 @@ import styles from "./Select.module.css";
 import formControlStyles from "../FormControl/FormControl.module.css";
 import { classNames } from "@bui/utils";
 
-export function Select(props: SelectProps) {
+export function Select<T extends object>(props: SelectProps<T>) {
 	const className = classNames(
 		props.className,
 		styles.container,

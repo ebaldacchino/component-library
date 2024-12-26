@@ -4,6 +4,16 @@ import { Select } from "./Select";
 import { useEffect, useState } from "react";
 import type { SelectProps } from "@bui/base";
 
+const options = [
+	{ id: "noodles", label: "Noodles", macro: "Carbohydrates" },
+	{ id: "rice", label: "Rice", macro: "Carbohydrates" },
+	{ id: "lasagne", label: "Lasagne", macro: "Carbohydrates" },
+	{ id: "steak", label: "Steak", macro: "Protein" },
+	{ id: "turkey", label: "Turkey", macro: "Protein" },
+	{ id: "chicken", label: "Chicken", macro: "Protein" },
+	{ id: "sushi", label: "Sushi" },
+];
+
 function Template(args: SelectProps) {
 	const [favouriteFood, setFavouriteFood] = useState(args.value);
 	useEffect(() => {
@@ -16,6 +26,8 @@ function Template(args: SelectProps) {
 			}}
 			{...args}
 			value={favouriteFood}
+			options={options}
+			groupBy="macro"
 		/>
 	);
 }
@@ -28,12 +40,8 @@ const meta: Meta<typeof Select> = {
 	tags: ["autodocs"],
 	args: {
 		label: "Favourite food",
-		value: "",
-		options: [
-			{ id: "noodles", label: "Noodles" },
-			{ id: "rice", label: "Rice" },
-			{ id: "lasagne", label: "Lasagne" },
-		],
+		value: undefined,
+		options,
 		error: false,
 	},
 	argTypes: {

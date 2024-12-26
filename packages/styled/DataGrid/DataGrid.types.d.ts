@@ -1,8 +1,5 @@
 import type { CSSProperties, Key } from "react";
-
-export type KeyOfType<T, Type> = {
-	[K in keyof T]: T[K] extends Type ? K : never;
-}[keyof T];
+import type { KeyOfType } from "@bui/utils";
 
 export type RowId<T> = KeyOfType<T, Key>;
 
