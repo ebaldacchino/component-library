@@ -12,7 +12,8 @@
 		"lint": "eslint",
 		"preview": "vite preview",
 		"storybook": "pnpm run dev:pkg && storybook dev -p 6006",
-		"build-storybook": "pnpm run dev:pkg && storybook build"
+		"build-storybook": "pnpm run dev:pkg && storybook build",
+		"test": "pnpm run dev:pkg && vitest"
 	},
 	"dependencies": {
 		"@fontsource/open-sans": "catalog:",
@@ -31,6 +32,9 @@
 		"@storybook/react": "catalog:",
 		"@storybook/react-vite": "catalog:",
 		"@storybook/test": "catalog:",
+		"@testing-library/dom": "catalog:",
+		"@testing-library/react": "catalog:",
+		"@testing-library/user-event": "catalog:",
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"@typescript-eslint/eslint-plugin": "catalog:",
@@ -40,6 +44,7 @@
 		"eslint-plugin-react-hooks": "catalog:",
 		"eslint-plugin-react-refresh": "catalog:",
 		"eslint-plugin-storybook": "catalog:",
+		"jsdom": "catalog:",
 		"globals": "catalog:",
 		"prettier": "catalog:",
 		"prop-types": "catalog:",
@@ -48,6 +53,7 @@
 		"stylelint-config-standard": "catalog:",
 		"tsx": "catalog:",
 		"typescript": "catalog:",
-		"vite": "catalog:"
+		"vite": "catalog:",
+		"vitest": "catalog:"
 	}
 }

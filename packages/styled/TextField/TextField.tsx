@@ -3,11 +3,12 @@ import { Input } from "../Input";
 import { FormControl } from "../FormControl";
 import type { FormControlProps, InputProps } from "@bui/base";
 
-export interface TextFieldProps extends FormControlProps<string>, InputProps {
+export interface TextFieldProps
+	extends Omit<FormControlProps<string>, "children">,
+		InputProps {
 	// TODO: Should be able to remove all 3 (both are the same on both interfaces - upgrade TypeScript?)
 	value: string;
 	prefix?: ReactNode;
-	children: ReactNode;
 	ref?: React.RefObject<HTMLInputElement>;
 }
 

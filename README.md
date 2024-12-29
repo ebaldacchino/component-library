@@ -9,11 +9,7 @@ The intention is to follow a path that's somewhat in accordance with [component 
 -   `Spinner` is required for `Button`
     The main exception is if there is anything else that I've already done, or appears simple and quick to add (provided that it's precursors are completed).
 
-FYI, I'd refrain from basing anything off this as long as this message is here. I will rebase frequently until the library matures.
-
-When styling and testing are more finalised, I will squash the additions into each feature's commit, as is appropriate. I'm currently styling using CSS modules. The plan is to use `@emotion/styled`. I have looked at build time CSS-in-JS (something like Linaria). The issue is that I will most likely wait until that particular library, or one of it's rivals, gains a wider share of the market.
-
-I will also add testing for each component, just unsure as to what testing for components entails yet. The main libraries I intend to look at are _Jest_ and _React Testing Library_.
+Previous CSS considerations were to use `@emotion/styled` or a build-time CSS-in-JS solution such as Linaria, which transpiles prop-based styles to CSS variables behind the scenes. However, I prefer CSS modules to avoid being locked into Babel for JavaScript transpiling.
 
 ## Roadmap (not in chronological order)
 
@@ -36,7 +32,8 @@ I will also add testing for each component, just unsure as to what testing for c
     -   Loading spinner
     -   No rows overlay
     -   Row sorting
-	-   Theming (CSS variables)
+    -   Theming (CSS variables)
+    -   Keyboard navigation
 -   DatePicker ✔
 -   DateRangePicker ✔
 -   DateTimePicker
