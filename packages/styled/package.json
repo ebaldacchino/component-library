@@ -2,19 +2,21 @@
 	"name": "@bui/styled",
 	"version": "0.0.0",
 	"description": "",
+	"type": "module",
 	"files": [
 		"dist"
 	],
-	"main": "./dist/styled.umd.js",
-	"module": "./dist/styled.mjs",
+	"main": "./dist/styled.umd.cjs",
+	"module": "./dist/styled.js",
 	"types": "./dist/types/index.d.ts",
 	"exports": {
 		".": {
-			"import": "./dist/styled.mjs",
-			"require": "./dist/styled.umd.js"
+			"import": "./dist/styled.js",
+			"require": "./dist/styled.umd.cjs"
 		}
 	},
 	"scripts": {
+		"dev": "vite build --watch",
 		"build": "tsc && vite build"
 	},
 	"dependencies": {

@@ -4,16 +4,17 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"dev:pkg": "tsx scripts/toggle-package-mode.ts dev",
-		"prod:pkg": "tsx scripts/toggle-package-mode.ts prod",
-		"build:pkg": "pnpm run dev:pkg && pnpm -C packages/base run build && pnpm -C packages/styled run build && git clean -f && git restore .",
+		"dev:base": "pnpm -C packages/base run dev",
+		"dev:styled": "pnpm -C packages/styled run dev",
+		"build:pkg": "pnpm -C packages/base run build && pnpm -C packages/styled run build",
 		"dev": "vite",
+		"develop": "tsx scripts/develop",
 		"tsc": "tsc",
 		"lint": "eslint",
 		"preview": "vite preview",
-		"storybook": "pnpm run dev:pkg && storybook dev -p 6006",
-		"build-storybook": "pnpm run dev:pkg && storybook build",
-		"test": "pnpm run dev:pkg && vitest"
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "pnpm run build:pkg && storybook build",
+		"test": "pnpm run build:pkg && vitest"
 	},
 	"dependencies": {
 		"@fontsource/open-sans": "catalog:",
