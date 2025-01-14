@@ -10,6 +10,7 @@ export default defineConfig({
 		lib: {
 			entry: path.resolve(__dirname, "index.ts"),
 			name: "@bui/base",
+			formats: ["es"],
 		},
 		rollupOptions: {
 			// make sure to externalize deps that shouldn't be bundled
@@ -20,7 +21,7 @@ export default defineConfig({
 				// for externalized deps
 				globals: {
 					react: "React",
-					"react-dom": "ReactDOM"
+					"react-dom": "ReactDOM",
 				},
 			},
 		},
